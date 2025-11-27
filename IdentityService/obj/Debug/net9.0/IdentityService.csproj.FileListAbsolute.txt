@@ -43,3 +43,4 @@ C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\IdentityService\obj\De
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\IdentityService\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\IdentityService\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\IdentityService\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\IdentityService\obj\Debug\net9.0\IdentityService.sourcelink.json

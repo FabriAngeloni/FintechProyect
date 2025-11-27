@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AccountService.Migrations
 {
-    [DbContext(typeof(AccountDbContext))]
+    [DbContext(typeof(CuentaDbContext))]
     partial class AccountDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

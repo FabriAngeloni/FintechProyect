@@ -143,3 +143,4 @@ C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AccountService\bin\Deb
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AccountService\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AccountService\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AccountService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AccountService\obj\Debug\net8.0\AccountService.sourcelink.json

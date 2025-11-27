@@ -5,7 +5,7 @@ namespace TransactionService.Data
 {
     public class TransaccionDbContext : DbContext
     {
-        public TransaccionDbContext(DbContextOptions options) : base(options)
+        public TransaccionDbContext(DbContextOptions<TransaccionDbContext> options) : base(options)
         {
         }
 

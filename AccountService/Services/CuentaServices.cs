@@ -7,8 +7,8 @@ namespace AccountService.Services
 {
     public class CuentaServices : ICuentaServices
     {
-        private readonly IAccountRepository _repository;
-        public CuentaServices(IAccountRepository repository)
+        private readonly ICuentaRepository _repository;
+        public CuentaServices(ICuentaRepository repository)
         {
             _repository = repository;
         }

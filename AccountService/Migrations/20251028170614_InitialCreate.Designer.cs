@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AccountService.Migrations
 {
-    [DbContext(typeof(AccountDbContext))]
+    [DbContext(typeof(CuentaDbContext))]
     [Migration("20251028170614_InitialCreate")]
     partial class InitialCreate
     {

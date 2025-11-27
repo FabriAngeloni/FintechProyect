@@ -8,12 +8,11 @@ using AccountService.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AccountDbContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
+builder.Services.AddDbContext<CuentaDbContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("AccountConnection")));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddScoped<ICuentaServices, CuentaServices>();
-builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ICuentaRepository, CuentaRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

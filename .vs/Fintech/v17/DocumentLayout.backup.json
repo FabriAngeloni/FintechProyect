@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\services\\itransaccionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\services\\itransaccionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\services\\transaccionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\services\\transaccionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\models\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\models\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\repositories\\transaccionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\repositories\\transaccionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,59 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Transaccion.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Models\\Transaccion.cs",
-              "RelativeDocumentMoniker": "TransactionService\\Models\\Transaccion.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Models\\Transaccion.cs",
-              "RelativeToolTip": "TransactionService\\Models\\Transaccion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T18:15:24.59Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TransaccionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Repositories\\TransaccionRepository.cs",
-              "RelativeDocumentMoniker": "TransactionService\\Repositories\\TransaccionRepository.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Repositories\\TransaccionRepository.cs",
-              "RelativeToolTip": "TransactionService\\Repositories\\TransaccionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T19:03:21.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TransaccionService.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Services\\TransaccionService.cs",
-              "RelativeDocumentMoniker": "TransactionService\\Services\\TransaccionService.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Services\\TransaccionService.cs",
-              "RelativeToolTip": "TransactionService\\Services\\TransaccionService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T17:27:20.358Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ITransaccionService.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Services\\ITransaccionService.cs",
-              "RelativeDocumentMoniker": "TransactionService\\Services\\ITransaccionService.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Services\\ITransaccionService.cs",
-              "RelativeToolTip": "TransactionService\\Services\\ITransaccionService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "TransactionService\\Controllers\\TransactionController.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Controllers\\TransactionController.cs*",
+              "RelativeToolTip": "TransactionService\\Controllers\\TransactionController.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwCgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T18:56:35.237Z",
+              "WhenOpened": "2025-11-27T16:43:39.174Z",
               "EditorCaption": ""
             }
           ]
