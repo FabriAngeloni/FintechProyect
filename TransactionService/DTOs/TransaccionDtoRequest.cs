@@ -2,8 +2,8 @@
 {
     public class TransaccionDtoRequest
     {
-        public Guid DesdeCuenta { get; set; }
+        public string DesdeCuenta { get; set; }
         public decimal Monto { get; set; }
-        public Guid ParaCuenta { get; set; }
+        public string ParaCuenta { get; set; }
     }
 }

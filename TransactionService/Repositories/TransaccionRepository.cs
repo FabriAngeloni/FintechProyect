@@ -26,6 +26,6 @@ namespace TransactionService.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Transaccion>> RetornarTransacciones() => await _context.Transacciones.ToListAsync();
+        public async Task<IEnumerable<Transaccion?>> RetornarTransacciones() => await _context.Transacciones.ToListAsync();
     }
 }

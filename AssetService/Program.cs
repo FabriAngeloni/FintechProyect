@@ -1,25 +1,48 @@
+using AssetService.Data;
+using AssetService.Models;
+using AssetService.Models.Factory_Creator;
+using AssetService.Models.Factory_Creator.Modifier;
+using AssetService.Repositories;
+using AssetService.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true)
+    .AddEnvironmentVariables();
+builder.Services.AddDbContext<AssetDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AssetConnection")));
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IActivoService, ActivoService>();
+builder.Services.AddScoped<IActivoRepository, ActivoRepository>();
+
+builder.Services.AddScoped<IActivoFactory, ActivoFactory>();
+builder.Services.AddScoped<IActivoCreator, AccionCreator>();
+builder.Services.AddScoped<IActivoCreator, BonoCreator>();
+builder.Services.AddScoped<IActivoCreator, FondoCreator>();
+
+builder.Services.AddScoped<IActivoModifierFactory, ActivoModifierFactory>();
+builder.Services.AddScoped<IActivoModifier, AccionModifier>();
+builder.Services.AddScoped<IActivoModifier, BonoModifier>();
+builder.Services.AddScoped<IActivoModifier, FondoModifier>();
+
+
+builder.Configuration.GetConnectionString("AssetConnection");
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .CreateLogger();
+builder.Host.UseSerilog();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var db = scope.ServiceProvider.GetRequiredService<AssetDbContext>();
+    db.Database.Migrate();
 }
-
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

@@ -5,9 +5,9 @@ namespace TransactionService.Services
 {
     public interface ITransaccionService
     {
-        public Task<Transaccion> CrearTransaccion(Guid desdeCuenta, decimal monto, Guid paraCuenta);
-        public Task<Transaccion?> BuscarTransaccionPorId(Guid transaccionId);
-        public Task<IEnumerable<Transaccion>?> RetornarTransacciones();
+        public Task<TransaccionDtoResponse> CrearTransaccion(Guid desdeCuenta, decimal monto, Guid paraCuenta);
+        public Task<TransaccionDtoResponse?> BuscarTransaccionPorId(Guid transaccionId);
+        public Task<IEnumerable<TransaccionDtoResponse>?> RetornarTransacciones();
         public Task CancelarTransaccion(Guid transaccionId);
 
     }

@@ -1,0 +1,190 @@
+services:
+
+  # ======================
+  # MESSAGE BROKER
+  # ======================
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - micro-net
+
+  # ======================
+  # DATABASES (PostgreSQL)
+  # ======================
+
+  transaction-db:
+    image: postgres:16
+    container_name: transaction-db
+    environment:
+      POSTGRES_DB: TransactionDb
+      POSTGRES_USER: fabricio
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - transaction-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabricio -d TransactionDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - micro-net
+
+  account-db:
+    image: postgres:16
+    container_name: account-db
+    environment:
+      POSTGRES_DB: AccountDb
+      POSTGRES_USER: fabricio
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - account-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabricio -d AccountDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - micro-net
+
+  audit-db:
+    image: postgres:16
+    container_name: audit-db
+    environment:
+      POSTGRES_DB: AuditDb
+      POSTGRES_USER: fabricio
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - audit-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabricio -d AuditDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - micro-net
+
+  identity-db:
+    image: postgres:16
+    container_name: identity-db
+    environment:
+      POSTGRES_DB: IdentityDb
+      POSTGRES_USER: fabricio
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - identity-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabricio -d IdentityDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - micro-net
+
+  asset-db:
+    image: postgres:16
+    container_name: asset-db
+    environment:
+      POSTGRES_DB: AssetDb
+      POSTGRES_USER: fabricio
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - asset-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabricio -d AssetDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - micro-net
+
+  # ======================
+  # MICROSERVICES
+  # ======================
+
+  transaction-service:
+    build: ./TransactionService
+    ports:
+      - "5001:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__TransactionConnection=Host=transaction-db;Port=5432;Database=TransactionDb;Username=fabricio;Password=1234
+    depends_on:
+      transaction-db:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+    networks:
+      - micro-net
+
+  account-service:
+    build: ./AccountService
+    ports:
+      - "5002:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__AccountConnection=Host=account-db;Port=5432;Database=AccountDb;Username=fabricio;Password=1234
+    depends_on:
+      account-db:
+        condition: service_healthy
+    networks:
+      - micro-net
+
+  audit-service:
+    build: ./AuditService
+    ports:
+      - "5003:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__AuditConnection=Host=audit-db;Port=5432;Database=AuditDb;Username=fabricio;Password=1234
+    depends_on:
+      audit-db:
+        condition: service_healthy
+    networks:
+      - micro-net
+
+  asset-service:
+    build: ./AssetService
+    ports:
+      - "5004:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__AssetConnection=Host=asset-db;Port=5432;Database=AssetDb;Username=fabricio;Password=1234
+    depends_on:
+      asset-db:
+        condition: service_healthy
+    networks:
+      - micro-net
+
+  identity-service:
+    build: ./IdentityService
+    ports:
+      - "5005:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__IdentityConnection=Host=identity-db;Port=5432;Database=IdentityDb;Username=fabricio;Password=1234
+    depends_on:
+      identity-db:
+        condition: service_healthy
+    networks:
+      - micro-net
+
+# ======================
+# VOLUMES
+# ======================
+volumes:
+  transaction-data:
+  account-data:
+  audit-data:
+  identity-data:
+  asset-data:
+
+# ======================
+# NETWORKS
+# ======================
+networks:
+  micro-net:
+    driver: bridge

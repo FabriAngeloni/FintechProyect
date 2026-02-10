@@ -14,7 +14,7 @@
             DesdeCuenta = desdeCuenta;
             Monto = monto;
             ParaCuenta = paraCuenta;
-            RealizadaEl = DateTime.UtcNow;
+            RealizadaEl = DateTime.UtcNow.ToLocalTime();
         }
     }
 }

@@ -12,25 +12,51 @@ namespace IdentityService.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly AuthService _authService;
-
-        public AuthController(AuthService authService)
+        private readonly IAuthService _authService;
+        private readonly ILogger<AuthController> _logger;
+        public AuthController(IAuthService authService, ILogger<AuthController> logger)
         {
             _authService = authService;
+            _logger = logger;
         }
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterRequest request)
+        public async Task<IActionResult> Register([FromBody]RegisterDtoRequest request)
         {
-            var user = _authService.Register(request.NombreUsuario, request.Mail, request.Password);
-            return Ok(new { user.Id, user.NombreUsuario, user.Email, user.Rol });
+            _logger.LogInformation("Controller: registrando al usuario {Request}",request);
+            try
+            {
+                var user = await _authService.Register(request.NombreUsuario, request.Mail, request.Password);
+                _logger.LogInformation("Controller: se ha creado con exito el usuario: {Nombre}, {Email}", user.NombreUsuario, user.Email);
+                return Ok(new { user.Id, user.NombreUsuario, user.Email, user.Rol });
+            }   
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Controller: error en la creacion del usuario {request}", request);
+                return StatusCode(500, "Error interno del servidor");
+            }
+            
         }
         [HttpPost("login")]
-        public IActionResult Login(LoginRequest request)
+        public async Task<IActionResult> Login([FromBody]LoginDtoRequest request)
         {
-            var token = _authService.Login(request.Email, request.Password);
-            if(token == null) return Unauthorized();
-            return Ok(new {Token = token});
+            _logger.LogInformation("Controller: logeando al usuario {Request}", request);
+            try
+            {
+                var token = await _authService.Login(request.Email, request.Password);
+                _logger.LogInformation("Controller: ingreso exitoso {Nombre}, {Email}", token.NombreUsuario,token.Email);
+                return Ok(new { Token = token });
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, "Controller: credenciales invalidas para el mail: {Email}", request.Email);
+                return Unauthorized("Credenciales invalidas.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Controller: error inesperado en el logeo del usuario:{Email}", request.Email);
+                return StatusCode(500, "Error interno del servidor");
+            }
         }
     }
 }

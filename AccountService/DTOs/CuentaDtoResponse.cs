@@ -4,7 +4,7 @@ namespace AccountService.DTOs
 {
     public class CuentaDtoResponse
     {
-        public Guid Id { get; set; }
+        public Guid AccountId { get; set; }
         public Guid UserId { get; set; }
         public string NombreUsuario { get; set; }
 
@@ -13,7 +13,7 @@ namespace AccountService.DTOs
         }
         public CuentaDtoResponse(Cuenta cuenta)
         {
-            Id = cuenta.Id;
+            AccountId = cuenta.Id;
             UserId = cuenta.UserId;
             NombreUsuario = cuenta.NombreUsuario;
         }

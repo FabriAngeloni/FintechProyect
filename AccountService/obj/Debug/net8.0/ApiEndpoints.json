@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "AccountService.DTOs.CrearCuentaDto",
+        "Type": "AccountService.DTOs.CrearCuentaParaUsuarioDto",
         "IsRequired": true
       }
     ],
@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "accountId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -33,16 +33,58 @@
   },
   {
     "ContainingType": "AccountService.Controllers.CuentaController",
+    "Method": "Acreditar",
+    "RelativePath": "api/Cuenta/acreditar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "monto",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountService.Controllers.CuentaController",
     "Method": "MostrarCuentasDelUsuario",
-    "RelativePath": "api/Cuenta/user/{userId}",
+    "RelativePath": "api/Cuenta/de/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "userId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountService.Controllers.CuentaController",
+    "Method": "Debitar",
+    "RelativePath": "api/Cuenta/debitar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "monto",
+        "Type": "System.Decimal",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

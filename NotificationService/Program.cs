@@ -1,25 +1,31 @@
-var builder = WebApplication.CreateBuilder(args);
+using NotificationService.Consumers.Identity;
+using NotificationService.Events.Identity;
+using NotificationService.Messaging;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+Console.WriteLine($"ENV = {builder.Environment.EnvironmentName}");
+Console.WriteLine(
+    File.Exists("appsettings.Development.json")
+        ? "DEV FILE FOUND"
+        : "DEV FILE MISSING"
+);
+
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+var rabbit = builder.Configuration.GetSection("RabbitMQ").Get<RabbitMqOptions>();
+Console.WriteLine($"RabbitMQ Host = {rabbit.Host}");
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.Configure<RabbitMqOptions>(builder.Configuration.GetSection("RabbitMQ"));
+builder.Services.AddSingleton<RabbitMqConnection>();
+builder.Services.AddHostedService<UsuarioCreadoConsumer>();
+
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

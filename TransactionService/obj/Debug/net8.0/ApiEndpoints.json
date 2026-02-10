@@ -1,53 +1,5 @@
 [
   {
-    "ContainingType": "AccountService.Controllers.CuentaController",
-    "Method": "CrearCuenta",
-    "RelativePath": "api/Cuenta",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "AccountService.DTOs.CrearCuentaDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountService.Controllers.CuentaController",
-    "Method": "BuscarCuentaPorId",
-    "RelativePath": "api/Cuenta/{accountId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accountId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountService.Controllers.CuentaController",
-    "Method": "MostrarCuentasDelUsuario",
-    "RelativePath": "api/Cuenta/user/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "TransactionService.Controllers.TransactionController",
     "Method": "CrearTransaccion",
     "RelativePath": "api/Transaction",
@@ -73,7 +25,7 @@
     "Parameters": [
       {
         "Name": "transaccionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -93,13 +45,13 @@
     "ContainingType": "TransactionService.Controllers.TransactionController",
     "Method": "CancelarTransaccion",
     "RelativePath": "api/Transaction/Cancelacion/{transaccionId}",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "transaccionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
