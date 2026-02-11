@@ -328,4 +328,3 @@ C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AuditService\obj\Debug
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AuditService\obj\Debug\net8.0\AuditService.pdb
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AuditService\obj\Debug\net8.0\AuditService.genruntimeconfig.cache
 C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AuditService\obj\Debug\net8.0\ref\AuditService.dll
-C:\Users\dynas\OneDrive\Proyecto fintech\Proyecto Fintech\AuditService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -10,7 +10,8 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
-    .AddJsonFile("appsettings.json", optional: true)
+    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 builder.Services.AddDbContext<AssetDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("AssetConnection")));

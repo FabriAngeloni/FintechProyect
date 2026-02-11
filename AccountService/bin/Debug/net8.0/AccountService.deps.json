@@ -9,7 +9,6 @@
       "AccountService/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
-          "Microsoft.EntityFrameworkCore": "9.0.10",
           "Microsoft.EntityFrameworkCore.Design": "9.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
           "RabbitMQ.Client": "7.2.0",
