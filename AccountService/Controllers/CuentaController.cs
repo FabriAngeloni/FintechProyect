@@ -20,15 +20,26 @@ namespace AccountService.Controllers
             _logger = logger;
         }
 
+
+
+
+        //deberia crear otro crear cuenta con el DTO donde me trae el UserID de identity creado o ver si puedo validar la existencia de un user id en el mismo metodo
+
+
+
+
         [HttpPost]
-        public async Task<IActionResult> CrearCuenta([FromBody] CrearCuentaParaUsuarioDto dto)
+        public async Task<IActionResult> CrearCuenta([FromBody] CrearCuentaParaUsuarioDto dtoRequest)
         {
             _logger.LogInformation("Controller: Iniciando la creacion de una cuenta...");
             try
             {
-                var account = await _accountService.CrearCuentaAsync(dto);
+                if(!ModelState.IsValid)
+                    return BadRequest(ModelState);
+                
+                var account = await _accountService.CrearCuentaAsync(dtoRequest);
                 _logger.LogInformation("Controller: Cuenta creada exitosamente. ID:{CuentaId}", account.AccountId);
-                return CreatedAtAction(nameof(BuscarCuentaPorId), account.AccountId, account);
+                return CreatedAtAction(nameof(BuscarCuentaPorId),new { accountID = account.AccountId}, account);
             }
             catch (ArgumentException ex)
             {
@@ -37,13 +48,38 @@ namespace AccountService.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Controller: Error en la creacion de la cuenta con nombre de usuario: {NombreUsuario}", dto.NombreUsuario);
+                _logger.LogError(ex, "Controller: Error en la creacion de la cuenta con nombre de usuario: {NombreUsuario}", dtoRequest.NombreUsuario);
                 return StatusCode(500, "Error interno del servidor.");
             }
             
         }
 
-        [HttpGet("{accountId}")]
+        [HttpPost("nueva-cuenta/{userId}")]
+        public async Task<IActionResult> CrearCuentaParaUsuario(string userId)
+        {
+            _logger.LogInformation("Controller: Iniciando la creacion de una cuenta para el usuario...");
+            try
+            {
+                if (!Guid.TryParse(userId, out var resultId))
+                    return BadRequest("Validar el formato de la query.");
+                var account = await _accountService.CrearCuentaAUsuario(resultId);
+
+                _logger.LogInformation("Controller: Cuenta creada exitosamente. ID:{CuentaId}", account.AccountId);
+                return Ok();//CreatedAtRoute("BuscarCuentaPorId", new { accountId = account.AccountId }, account);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, "Controller: El nombre de usuario o balance fallaron en la creacion.");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Controller: Error en la creacion de la cuenta con el ID de usuario: {UserId}", userId);
+                return StatusCode(500, "Error interno del servidor.");
+            }
+        }
+
+        [HttpGet("{accountId}", Name = "BuscarCuentaPorId")]
         public async Task<IActionResult> BuscarCuentaPorId(string accountId)
         {
             _logger.LogInformation("Controller: Iniciando la busqueda de una cuenta con ID: {Id}...",accountId);
@@ -52,7 +88,7 @@ namespace AccountService.Controllers
             {
                 if (!Guid.TryParse(accountId, out var id))
                 {
-                    _logger.LogWarning("Controller: el ID: {A.ID} no puede ser convertido a Guid porque no cumple con los requisitos.", accountId);
+                    _logger.LogWarning("Controller: el ID: {AccID} no puede ser convertido a Guid porque no cumple con los requisitos.", accountId);
                     return BadRequest("Validar ID enviado.");
                 }
                 var account = await _accountService.BuscarPorIdAsync(id);

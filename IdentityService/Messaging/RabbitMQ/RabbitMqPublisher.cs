@@ -53,8 +53,6 @@ namespace AccountService.Messaging.RabbitMQ
                 _logger.LogError(ex, "RabbitMqPublisher: error en la publicacion del evento");
                 throw;
             }
-
-
         }
     }
 }

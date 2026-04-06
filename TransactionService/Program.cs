@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using TransactionService.Clients;
 using TransactionService.Data;
+using TransactionService.Messaging.RabbitMq;
 using TransactionService.Repositories;
 using TransactionService.Services;
 
@@ -12,7 +13,9 @@ builder.Configuration
 builder.Services.AddDbContext<TransaccionDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("TransactionConnection")));
 
-
+builder.Services.Configure<RabbitMqOptions>(builder.Configuration.GetSection("RabbitMQ"));
+builder.Services.AddSingleton<RabbitMqOptions>();
+builder.Services.AddSingleton<RabbitMqConnection>();
 builder.Services.AddHttpClient<IAccountClient,AccountHttpClient>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<ITransaccionRepository, TransaccionRepository>();

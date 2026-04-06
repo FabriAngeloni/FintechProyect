@@ -1,5 +1,7 @@
 ﻿using TransactionService.Clients;
 using TransactionService.DTOs;
+using TransactionService.Messaging.Abstractions;
+using TransactionService.Messaging.Events;
 using TransactionService.Models;
 using TransactionService.Repositories;
 
@@ -11,6 +13,7 @@ namespace TransactionService.Services
         private readonly ITransaccionRepository _transaccionRepository;
         private readonly ILogger<TransaccionService> _logger;
         private readonly IAccountClient _accountClient;
+        private readonly IMessagePublisher _messagePublisher;
 
         public TransaccionService(ITransaccionRepository transaccionRepository, IAccountClient accountClient, ILogger<TransaccionService> logger)
         {
@@ -52,11 +55,16 @@ namespace TransactionService.Services
             {
                 if (monto <= 0)
                     throw new Exception("El monto enviado debe ser mayor a 0.");
+                _logger.LogInformation("Service: se debitara {Monto} a la cuenta {Desde}.",monto,desdeCuenta);
                 await _accountClient.Debitar(desdeCuenta, monto);
+                _logger.LogInformation("Service: se acreditara {Monto} a la cuenta {Desde}.", monto, paraCuenta);
                 await _accountClient.Acreditar(paraCuenta, monto);
+
                 var transaccion = new Transaccion(desdeCuenta, monto, paraCuenta);
                 await _transaccionRepository.CrearTransaccion(transaccion);
-
+                _logger.LogInformation("Service: la transaccion fue creada con exito.");
+                await _messagePublisher.PublishAsync(new TransaccionIniciadaEvento(transaccion.TransaccionId, transaccion.DesdeCuenta, transaccion.Monto, transaccion.RealizadaEl));
+                _logger.LogInformation("Service: se ha publicado el evento de manera correcta.");
                 return new TransaccionDtoResponse(transaccion);
             }
             catch

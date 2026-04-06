@@ -8,6 +8,7 @@ using Serilog;
 using AccountService.Messaging.RabbitMQ;
 using AccountService.Messaging.Consumers;
 using AccountService.Messaging.Abstractions;
+using AccountService.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 //con docker se usara el appsettings.json  y localmente se usara appsettings.development.json
@@ -33,9 +34,19 @@ var rabbit = builder.Configuration.GetSection("RabbitMQ").Get<RabbitMqOptions>()
 builder.Services.Configure<RabbitMqOptions>(builder.Configuration.GetSection("RabbitMQ"));
 Console.WriteLine($"RABBITMQ host: {rabbit.Host}");
 
+builder.Services.AddHttpClient<IIdentityClient, IdentityHttpClient>(client => 
+{
+    client.BaseAddress = new Uri("http://identity-service:5000"); 
+});
 //Registras que solo va a existir una instancia que usaran todas las clases de ser necesario.
 builder.Services.AddSingleton<RabbitMqConnection>();
-builder.Services.AddSingleton<RabbitMqOptions>();
+
+
+
+
+
+
+//builder.Services.AddSingleton<RabbitMqOptions>();
 builder.Services.AddHostedService<UsuarioCreadoConsumer>();
 
 builder.Host.UseSerilog();

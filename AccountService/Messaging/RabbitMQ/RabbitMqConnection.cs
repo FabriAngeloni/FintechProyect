@@ -53,7 +53,17 @@ namespace AccountService.Messaging.RabbitMQ
                 };
                 // Crea la conexión TCP real de forma ASYNC
                 // Esta operación es costosa y por eso se hace una sola vez
-                _connection = await factory.CreateConnectionAsync();
+                while (_connection == null)
+                {
+                    try
+                    {
+                        _connection = await factory.CreateConnectionAsync();
+                    }
+                    catch
+                    {
+                        await Task.Delay(5000);
+                    }
+                }
                 return _connection;
             }
             finally

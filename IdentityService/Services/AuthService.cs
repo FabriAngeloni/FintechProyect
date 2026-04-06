@@ -23,6 +23,49 @@ namespace IdentityService.Services
             _logger = logger;
             _publisher = publisher;
         }
+        public async Task<IEnumerable<UserDtoResponse>> RetornarUsuarios()
+        {
+            _logger.LogInformation("Service: comenzando el retorno de los usuarios de la base de datos...");
+            try
+            {
+                var usuarios = await _repository.RetornarUsuarios();
+                if (!usuarios.Any()) 
+                    _logger.LogWarning("Service: no hay usuarios registrados en la base de datos!");
+                var usuariosDto = usuarios.Select(u => new UserDtoResponse(u)).ToList();
+                if (!usuariosDto.Any()) 
+                    _logger.LogWarning("Service: no hay usuarios transformados a dto.");
+                return usuariosDto;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Service: error en el retorno de los usuarios.");
+                throw;
+            }
+        }
+        public async Task<UserDtoResponse> BuscarPorId(Guid id)
+        {
+            _logger.LogInformation("Service: comenzando busqueda del usuario con ID...{Id}", id);
+            try
+            {
+                var usuario = await _repository.BuscarPorId(id);
+                if (usuario == null) 
+                    _logger.LogWarning("Service: no se encontro un usuario con el ID {id}",id);
+                
+                _logger.LogInformation("Service: se encontro el usuario {Nombre}",usuario.NombreUsuario);
+                return new UserDtoResponse 
+                {
+                    Email = usuario.Email,
+                    Id = usuario.Id,
+                    NombreUsuario = usuario.NombreUsuario,
+                    Rol = usuario.Rol
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Service: error en la busqueda del usuario id: {Id}", id);
+                throw;
+            }
+        }
         public async Task<UserDtoResponse> Register(string nombreUsuario, string email, string contraseña)
         {
             _logger.LogInformation("Service: Registrando usuario...{Email}", email);
@@ -113,5 +156,7 @@ namespace IdentityService.Services
                 Token = jwt
             };
         }
+
+       
     }
 }

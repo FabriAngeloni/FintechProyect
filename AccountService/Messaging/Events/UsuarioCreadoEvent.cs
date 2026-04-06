@@ -1,4 +1,4 @@
-﻿namespace AccountService.Events
+﻿namespace AccountService.Messaging.Events
 {
     // Evento que representa que una cuenta fue creada
     // Se usa para enviar información entre servicios (mensajería)

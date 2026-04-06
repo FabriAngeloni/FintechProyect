@@ -1,4 +1,5 @@
 ﻿using IdentityService.Data;
+using IdentityService.DTOs;
 using IdentityService.Models;
 using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Reflection.Metadata;
 
 namespace IdentityService.Repository
 {
+
     public class UserRepository : IUserRepository
     {
         private readonly UserDbContext _dbContext;
@@ -48,6 +50,7 @@ namespace IdentityService.Repository
         }
 
         public async Task<IEnumerable<User>?> RetornarUsuarios() => await _dbContext.Usuarios.ToListAsync();
-        
+
+    
     }
 }

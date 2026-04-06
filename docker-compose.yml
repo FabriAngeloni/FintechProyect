@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: fabricio
       POSTGRES_PASSWORD: 1234
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -109,6 +109,22 @@ services:
         condition: service_healthy
       rabbitmq:
         condition: service_started
+    networks:
+      - micro-net
+
+  api-gateway:
+    build: ./ApiGateway
+    container_name: api-gateway
+    ports:
+      - "7002:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+    depends_on:
+      - identity-service
+      - account-service
+      - transaction-service
+      - asset-service
+      - audit-service
     networks:
       - micro-net
 

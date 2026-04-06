@@ -7,36 +7,24 @@
       "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\accountservice\\clients\\identityhttpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\clients\\identityhttpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\identityservice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|solutionrelative:identityservice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\accountservice\\services\\cuentaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\services\\cuentaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\transactionservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67FA9006-4F0B-43B0-B38B-32E96D82F597}|TransactionService\\TransactionService.csproj|solutionrelative:transactionservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\accountservice\\messaging\\consumers\\usuariocreadoconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\messaging\\consumers\\usuariocreadoconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\identityservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|solutionrelative:identityservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\identityservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2A739752-78E6-4961-8A36-5A37ED604C60}|IdentityService\\IdentityService.csproj|solutionrelative:identityservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B01545E2-C39F-4285-8CAC-EC4A4ED04B00}|AssetService\\AssetService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\assetservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B01545E2-C39F-4285-8CAC-EC4A4ED04B00}|AssetService\\AssetService.csproj|solutionrelative:assetservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{696E2D32-00A3-44FA-AA75-168E55A7169B}|NotificationService\\NotificationService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\notificationservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{696E2D32-00A3-44FA-AA75-168E55A7169B}|NotificationService\\NotificationService.csproj|solutionrelative:notificationservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{511CEF21-1EFD-4560-8655-ED9BBB683778}|AuditService\\AuditService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\auditservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{511CEF21-1EFD-4560-8655-ED9BBB683778}|AuditService\\AuditService.csproj|solutionrelative:auditservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\accountservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|c:\\users\\dynas\\onedrive\\proyecto fintech\\proyecto fintech\\accountservice\\clients\\iidentityclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1CBF3D-28B3-4AE0-9288-A456A06F97AA}|AccountService\\AccountService.csproj|solutionrelative:accountservice\\clients\\iidentityclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 270,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,99 +42,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CuentaService.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Services\\CuentaService.cs",
-              "RelativeDocumentMoniker": "AccountService\\Services\\CuentaService.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Services\\CuentaService.cs",
-              "RelativeToolTip": "AccountService\\Services\\CuentaService.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IIdentityClient.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Clients\\IIdentityClient.cs",
+              "RelativeDocumentMoniker": "AccountService\\Clients\\IIdentityClient.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Clients\\IIdentityClient.cs",
+              "RelativeToolTip": "AccountService\\Clients\\IIdentityClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T21:11:29.347Z"
+              "WhenOpened": "2026-04-06T12:31:17.058Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\appsettings.json",
-              "RelativeDocumentMoniker": "IdentityService\\appsettings.json",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\appsettings.json",
-              "RelativeToolTip": "IdentityService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-10T19:24:54.857Z"
+              "Title": "UsuarioCreadoConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Messaging\\Consumers\\UsuarioCreadoConsumer.cs",
+              "RelativeDocumentMoniker": "AccountService\\Messaging\\Consumers\\UsuarioCreadoConsumer.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Messaging\\Consumers\\UsuarioCreadoConsumer.cs",
+              "RelativeToolTip": "AccountService\\Messaging\\Consumers\\UsuarioCreadoConsumer.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAowFwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T12:30:03.695Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Program.cs",
-              "RelativeDocumentMoniker": "TransactionService\\Program.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\TransactionService\\Program.cs",
-              "RelativeToolTip": "TransactionService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABOAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "IdentityService\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "IdentityService\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAwwEEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:45:01.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\NotificationService\\Program.cs",
-              "RelativeDocumentMoniker": "NotificationService\\Program.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\NotificationService\\Program.cs",
-              "RelativeToolTip": "NotificationService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:44:46.394Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\Program.cs",
-              "RelativeDocumentMoniker": "IdentityService\\Program.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\IdentityService\\Program.cs",
-              "RelativeToolTip": "IdentityService\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAowD8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:44:25.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AuditService\\Program.cs",
-              "RelativeDocumentMoniker": "AuditService\\Program.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AuditService\\Program.cs",
-              "RelativeToolTip": "AuditService\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAIBJwCIAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:44:08.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AssetService\\Program.cs",
-              "RelativeDocumentMoniker": "AssetService\\Program.cs",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AssetService\\Program.cs",
-              "RelativeToolTip": "AssetService\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:43:57.535Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\appsettings.json",
-              "RelativeDocumentMoniker": "AccountService\\appsettings.json",
-              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\appsettings.json",
-              "RelativeToolTip": "AccountService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-09T20:05:35.84Z"
+              "WhenOpened": "2026-04-06T12:17:43.236Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -156,9 +87,35 @@
               "RelativeDocumentMoniker": "AccountService\\Program.cs",
               "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Program.cs",
               "RelativeToolTip": "AccountService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwB4AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:05:34.053Z",
+              "WhenOpened": "2026-03-20T20:40:05.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IdentityHttpClient.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Clients\\IdentityHttpClient.cs",
+              "RelativeDocumentMoniker": "AccountService\\Clients\\IdentityHttpClient.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Clients\\IdentityHttpClient.cs",
+              "RelativeToolTip": "AccountService\\Clients\\IdentityHttpClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T20:31:27.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CuentaService.cs",
+              "DocumentMoniker": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Services\\CuentaService.cs",
+              "RelativeDocumentMoniker": "AccountService\\Services\\CuentaService.cs",
+              "ToolTip": "C:\\Users\\dynas\\OneDrive\\Proyecto fintech\\Proyecto Fintech\\AccountService\\Services\\CuentaService.cs",
+              "RelativeToolTip": "AccountService\\Services\\CuentaService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T20:23:17.137Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,5 @@
-﻿using AccountService.DTOs;
+﻿using AccountService.Clients;
+using AccountService.DTOs;
 using AccountService.Models;
 using AccountService.Repositories;
 
@@ -8,14 +9,16 @@ namespace AccountService.Services
     {
         private readonly ICuentaRepository _repository;
         private readonly ILogger<CuentaService> _logger;
+        private readonly IIdentityClient _identityClient;
 
-        public CuentaService(ICuentaRepository repository, ILogger<CuentaService> logger)
+        public CuentaService(ICuentaRepository repository, ILogger<CuentaService> logger, IIdentityClient identityClient)
         {
             _repository = repository;
             _logger = logger;
+            _identityClient = identityClient;
         }
 
-        public async Task<CuentaDtoResponse?> BuscarPorIdAsync(Guid accountId)
+        public async Task<CuentaDtoResponse> BuscarPorIdAsync(Guid accountId)
         {
             _logger.LogInformation("Service: realizando la busqueda por ID de cuenta:{Id}", accountId);
             try
@@ -24,7 +27,6 @@ namespace AccountService.Services
                 if (cuenta == null)
                 {
                     _logger.LogWarning("Service: no se encontro cuenta a traves del accountId: {AccountId}", accountId);
-                    return null;
                 }
                 _logger.LogInformation("Service: cuenta encontrada correctamente con ID de cuenta:{Id}", accountId);
                 return new CuentaDtoResponse(cuenta);
@@ -47,7 +49,6 @@ namespace AccountService.Services
                     _logger.LogWarning("Service: no se encontraron cuentas a traves del userId: {userId}", userId);
                     return Enumerable.Empty<CuentaDtoResponse>();
                 }
-                
                 _logger.LogInformation("Service: se encontraron cuentas a traves del userId {userId}.", userId);
                 return cuentas.Select(c => new CuentaDtoResponse(c)).ToList();
             }
@@ -63,7 +64,7 @@ namespace AccountService.Services
             _logger.LogInformation("Service: creando cuenta con userId, nombre y balance: \n    {userId}\n{nombre}\n{balance}", dtoRequest.UserId, dtoRequest.NombreUsuario, dtoRequest.Balance);
             try
             {
-                if (string.IsNullOrWhiteSpace(dtoRequest.NombreUsuario))
+                if(string.IsNullOrWhiteSpace(dtoRequest.NombreUsuario))
                 {
                     _logger.LogWarning("Service: el nombre de usuario es null.");
                     throw new ArgumentException("Nombre de usuario vacio o en blanco");
@@ -74,12 +75,15 @@ namespace AccountService.Services
                     _logger.LogWarning("Service: el balance de la nueva cuenta es menor a 0.");
                     throw new ArgumentException($"Balance ingresado:{dtoRequest.Balance} es menor a 0.");
                 }
+                var user = await _identityClient.BuscarUser(dtoRequest.UserId);
+                if (user == null) 
+                    throw new Exception("El usuario que se busca para crear la cuenta no existe.");
                 var cuenta = new Cuenta
                 {
                     Id = Guid.NewGuid(),
-                    UserId = dtoRequest.UserId,
+                    UserId = user.Id,
                     NombreUsuario = dtoRequest.NombreUsuario,
-                    Balance = dtoRequest.Balance,
+                    Balance = 0,
                     CreadoEl = DateTime.UtcNow
                 };
 
@@ -93,7 +97,34 @@ namespace AccountService.Services
                 throw;
             }
         }
+        public async Task<CuentaDtoResponse> CrearCuentaAUsuario(Guid userId)
+        {
+            _logger.LogInformation("Service: creando cuenta al usuario con {userId}", userId);
+            try
+            {
+                var user = await _identityClient.BuscarUser(userId);
+                if (user == null)
+                    throw new Exception("El usuario que se busca para crear la cuenta no existe.");
+                _logger.LogWarning("Service: No se encontro o no existe un usuario con el {Id}", userId);
+                var cuenta = new Cuenta
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = user.Id,
+                    NombreUsuario = user.NombreUsuario,
+                    Balance = 0,
+                    CreadoEl = DateTime.UtcNow
+                };
 
+                await _repository.CrearCuenta(cuenta);
+                _logger.LogInformation("Service: se ha creado una cuenta con exito...\n{UserId}\n{Id}\n{Nombre}\n{CreadoEl} ", cuenta.UserId, cuenta.Id, cuenta.NombreUsuario, cuenta.CreadoEl);
+                return new CuentaDtoResponse(cuenta);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Service: error en la creacion de la cuenta");
+                throw;
+            }
+        }
         public async Task<BalanceDtoResponse> Debito(Guid accountId, decimal monto)
         {
             _logger.LogInformation("Service: comenzando debito por el monto de ${Monto} a la cuenta ID:{Cuenta}", monto, accountId);

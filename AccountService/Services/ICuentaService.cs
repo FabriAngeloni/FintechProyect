@@ -7,6 +7,7 @@ namespace AccountService.Services
     public interface ICuentaService
     {
         Task<CuentaDtoResponse> CrearCuentaAsync(CrearCuentaParaUsuarioDto dtoRequest);
+        Task<CuentaDtoResponse> CrearCuentaAUsuario(Guid userId);
 
         Task<CuentaDtoResponse> BuscarPorIdAsync(Guid accountId);
         Task<IEnumerable<CuentaDtoResponse>> BuscarPorUserIdAsync(Guid userId);

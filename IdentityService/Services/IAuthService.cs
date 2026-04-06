@@ -11,9 +11,11 @@ namespace IdentityService.Services
 {
     public interface IAuthService
     {
+        public Task<IEnumerable<UserDtoResponse>> RetornarUsuarios();
 
         public Task<UserDtoResponse> Register(string nombreUsuario, string email, string contraseña);
-        
+
+        public Task<UserDtoResponse> BuscarPorId(Guid id);
 
         public Task<UserDtoResponse> Login(string email, string contraseña);
        

@@ -5,8 +5,9 @@ using System.Text;
 using System.Text.Json;
 using AccountService.Services;
 using AccountService.Messaging.RabbitMQ;
-using AccountService.Events;
 using AccountService.DTOs;
+using Microsoft.Extensions.Options;
+using AccountService.Messaging.Events;
 
 namespace AccountService.Messaging.Consumers
 {
@@ -15,11 +16,13 @@ namespace AccountService.Messaging.Consumers
         private readonly RabbitMqConnection _connection;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly ILogger<UsuarioCreadoConsumer> _logger;
-        public UsuarioCreadoConsumer(RabbitMqConnection connection, IServiceScopeFactory scopeFactory, ILogger<UsuarioCreadoConsumer> logger)
+        private readonly RabbitMqOptions _options;
+        public UsuarioCreadoConsumer(RabbitMqConnection connection, IServiceScopeFactory scopeFactory, ILogger<UsuarioCreadoConsumer> logger, IOptions<RabbitMqOptions> rabbitMqOptions)
         {
             _connection = connection;
             _scopeFactory = scopeFactory;
             _logger = logger;
+            _options = rabbitMqOptions.Value;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -31,7 +34,7 @@ namespace AccountService.Messaging.Consumers
 
             //Declaro el exchange donde llegaran los mensajes
             await channel.ExchangeDeclareAsync(
-                exchange: "identity.events",
+                exchange: _options.Exchange,
                 type: ExchangeType.Fanout,
                 durable: true
                 );
@@ -48,7 +51,7 @@ namespace AccountService.Messaging.Consumers
             //Aca lo que hace es decir que todo mensaje que llegue a el exchange "identity.events" se enviara a la cola "account.usuario-creado"
             await channel.QueueBindAsync(
                 queue: "account.usuario-creado",
-                exchange: "identity.events",
+                exchange: _options.Exchange,
                 routingKey: ""   //Con el routingKey decidimos a que colas va el mensaje (no necesario cuando declaramos el exchange fanout(se envia a todas la colas))
                 );
 
@@ -64,6 +67,7 @@ namespace AccountService.Messaging.Consumers
                     _logger.LogInformation("UsuarioCreadoConsumer: mensaje recibido. Exchange:{Exchange}, DeliveryTag: {Tag}",args.Exchange,args.DeliveryTag);
                     using var scope = _scopeFactory.CreateScope();
                     var cuentaService = scope.ServiceProvider.GetRequiredService<ICuentaService>();
+                    
                     var json = Encoding.UTF8.GetString(args.Body.ToArray()); //Transformamos los bytes enviados por rabbitmq a un json
                     var evento = JsonSerializer.Deserialize<UsuarioCreadoEvent>(json); //transforma el json en un objeto UsuarioCreadoEvent
 
@@ -76,8 +80,8 @@ namespace AccountService.Messaging.Consumers
                         return;
                     }
                     _logger.LogInformation("UsuarioCreadoConsumer: se creara una cuenta para userId: {UserId}", evento.UserId);
-                    var dtoRequest = new CrearCuentaParaUsuarioDto(evento.NombreUsuario,0);
-                    await cuentaService.CrearCuentaAsync(dtoRequest ); //se le crea una cuenta al nuevo usuario a partir del desarmado del json
+                    var dtoRequest = new CrearCuentaParaUsuarioDto(evento.UserId,evento.NombreUsuario,0);
+                    await cuentaService.CrearCuentaAsync(dtoRequest); //se le crea una cuenta al nuevo usuario a partir del desarmado del json
                    
                     _logger.LogInformation("UsuarioCreadoConsumer: proceso correctamente el evento. Exchange: {Exchange}, DeliveryTag: {Tag}",args.Exchange,args.DeliveryTag);
                     await channel.BasicAckAsync(args.DeliveryTag, false);

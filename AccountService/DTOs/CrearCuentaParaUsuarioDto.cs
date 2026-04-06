@@ -2,13 +2,13 @@
 {
     public class CrearCuentaParaUsuarioDto
     {
-        public Guid UserId { get; set; }
+        public Guid UserId { get; set; }    
         public string NombreUsuario { get; set; }
         public decimal Balance { get; set; }
 
-        public CrearCuentaParaUsuarioDto(string nombreUsuario,decimal balance)
+        public CrearCuentaParaUsuarioDto(Guid id, string nombreUsuario,decimal balance)
         {
-            UserId = Guid.NewGuid();
+            UserId = id;
             NombreUsuario = nombreUsuario;
             Balance = balance;
         }
